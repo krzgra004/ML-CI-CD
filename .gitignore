@@ -1,0 +1,5 @@
+*.docx
+*.pdf
+*.txt
+__pycache__/
+my_env/
