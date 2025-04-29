@@ -4,6 +4,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from sklearn.linear_model import LinearRegression
 import numpy as np
+from model import train_and_predict, get_accuracy
 
 app = FastAPI()
 
@@ -24,7 +25,7 @@ def read_root():
 @app.post("/predict")
 def predict(input_data: InputData):
     try:
-        prediction = model.predict(np.array([[input_data.value]]))
+        prediction, _ = train_and_predict
         return {"prediction": float(prediction[0])}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
