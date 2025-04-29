@@ -6,6 +6,8 @@ from sklearn.linear_model import LinearRegression
 import numpy as np
 from model import train_and_predict, get_accuracy
 
+#test
+
 app = FastAPI()
 
 class InputData(BaseModel):
